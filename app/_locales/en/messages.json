@@ -1,0 +1,18 @@
+{
+    "appName": {
+        "message": "A岛助手",
+        "description": "A岛助手"
+    },
+    "appShortName": {
+        "message": "A岛助手",
+        "description": "A岛助手"
+    },
+    "appDescription": {
+        "message": "A岛助手",
+        "description": "描述"
+    },
+    "browserActionTitle": {
+        "message": "AIsland chrome",
+        "description": "The title of the browser action button"
+    }
+}
