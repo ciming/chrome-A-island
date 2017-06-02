@@ -10,8 +10,22 @@ export const order = (function() {
         }
     })
 
+    /**
+     * 点击事件
+     * @param {*} event
+     */
     function subEvent(event) {
         event.preventDefault();
-        console.log(event.target);
+        let link = event.target.href;
+        let cuanId = getId(link);
+        alert(cuanId)
+    }
+    /**
+     * 获取链接id
+     * @param {String} link 链接
+     */
+    function getId(link) {
+        let id = /tid\/(.+?)\.html$/.exec(link)[1];
+        return id
     }
 })();

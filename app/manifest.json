@@ -51,6 +51,7 @@
         "clipboardWrite",
         "cookies",
         "webRequest",
+        "*://h.nimingban.com/*",
         "webRequestBlocking"
     ]
 }
