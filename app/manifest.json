@@ -50,6 +50,7 @@
         "clipboardRead",
         "clipboardWrite",
         "cookies",
+        "storage",
         "webRequest",
         "*://h.nimingban.com/*",
         "webRequestBlocking"
