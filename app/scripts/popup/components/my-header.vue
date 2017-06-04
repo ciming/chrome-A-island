@@ -34,7 +34,7 @@ header{
   align-items: center;
   h2{
     flex: 1;
-    font-size: 18px;
+    font-size: 16px;
   }
   .left,.right{
     width: 40px;

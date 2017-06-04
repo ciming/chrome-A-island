@@ -40,7 +40,7 @@
       height: 24px;
     }
   }
-  &:active{
+  &:hover{
     background: #f0f0f0
   }
 }
