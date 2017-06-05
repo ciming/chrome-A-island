@@ -23,7 +23,7 @@
     },
     methods: {
       init(){
-        this.$store.dispatch('global/getUser');
+        this.$store.dispatch('getUser');
       }
     }
   }

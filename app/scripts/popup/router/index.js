@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Index from '../page/Index.vue'
 import Setting from '../page/Setting.vue'
-import Cookie from '../page/Cookie.vue'
+import Cookie from '../page/Cookie/index.vue'
 Vue.use(Router)
 
 const router = new Router({

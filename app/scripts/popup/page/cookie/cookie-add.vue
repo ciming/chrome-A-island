@@ -57,15 +57,30 @@
 <template>
 <transition name="modal">
   <div class="modal-mask" @click="$emit('close')">
-    <div class="modal-container">
+    <div class="modal-container" @click.stop>
       <div class="modal-title">
         请输入饼干
       </div>
-      <div class="modal-content"><input placeholder="请输入饼干"/></div>
+      <div class="modal-content"><input placeholder="请输入饼干" v-model="cookie"/></div>
       <div class="modal-footer">
-        <a>确定</a>
+        <a class="submit">确定</a>
       </div>
     </div>
   </div>
   </transition>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      cookie: ''
+    }
+  },
+  methods: {
+    submit() {
+
+    }
+  }
+}
+</script>
+

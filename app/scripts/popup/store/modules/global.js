@@ -1,3 +1,5 @@
+import * as types from '../mutation-types'
+
 //判断userhash是否存在
 const checkUserhash = function(hash) {
     let data = null;
@@ -18,26 +20,27 @@ const getters = {
 }
 const actions = {
     ['getUser']({ commit }) {
+        console.log(types.UPDATE_COOKIE)
         chrome.cookies.get({
             url: 'https://h.nimingban.com',
             name: 'userhash'
         }, (cookie) => {
             if (cookie) {
-                commit('setUser', cookie.value);
+                commit(types.UPDATE_COOKIE, cookie.value);
             } else {
-                commit('setUser', null);
+                commit(types.UPDATE_COOKIE, null);
             }
         })
     }
 }
 
 const mutations = {
-    ['setUser'](state, hash) {
+    [types.UPDATE_COOKIE](state, hash) {
         if (hash) {
             checkUserhash(hash);
             state.user = {
                 hash,
-                has: ture
+                has: true
             }
         }
     }

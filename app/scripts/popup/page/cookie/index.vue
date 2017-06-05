@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import CookieAdd from '../components/cookie-add.vue'
-import MyHeader from '../components/my-header.vue'
+import CookieAdd from './cookie-add.vue'
+import MyHeader from '../../components/my-header.vue'
 export default {
   components:{
     MyHeader,
