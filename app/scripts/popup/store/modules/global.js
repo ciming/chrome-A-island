@@ -1,16 +1,39 @@
 import * as types from '../mutation-types'
-
+import { getCoookieName } from '../../utiles'
 //判断userhash是否存在
 const checkUserhash = function(hash) {
-    let data = null;
     chrome.storage.sync.get('cookies', (result) => {
-        console.log(result)
+        let cookiesList = [];
+        if (result.cookies) {
+            let cookieData = JSON.parse(result.cookies);
+            cookiesList = cookieData.list;
+            let fitterCookiesList = cookiesList.filter((item) => {
+                return item.hash === hash
+            })
+            if (fitterCookiesList.length > 0) {
+                return;
+            } else {
+                cookiesList.push({
+                    name: getCoookieName(hash),
+                    hash
+                })
+            }
+        } else {
+            cookiesList = [{
+                name: getCoookieName(hash),
+                hash
+            }]
+        }
+        chrome.storage.sync.set({ cookies: JSON.stringify({ list: cookiesList }) }, () => {
+            chrome.storage.sync.get('cookies', (result) => {
+                console.log(result)
+            })
+        })
     })
 }
 const state = {
     user: {
-        hash: '',
-        has: false
+        cookie: ""
     }
 }
 const getters = {
@@ -20,7 +43,6 @@ const getters = {
 }
 const actions = {
     ['getUser']({ commit }) {
-        console.log(types.UPDATE_COOKIE)
         chrome.cookies.get({
             url: 'https://h.nimingban.com',
             name: 'userhash'
@@ -37,11 +59,8 @@ const actions = {
 const mutations = {
     [types.UPDATE_COOKIE](state, hash) {
         if (hash) {
+            state.user.cookie = hash;
             checkUserhash(hash);
-            state.user = {
-                hash,
-                has: true
-            }
         }
     }
 }

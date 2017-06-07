@@ -1,1 +1,2 @@
 export const UPDATE_COOKIE = 'UPDATE_COOKIE';
+export const SET_COOKIE_LIST = 'SET_COOKIE_LIST'
