@@ -10,7 +10,7 @@ const checkUserhash = function(hash) {
             let fitterCookiesList = cookiesList.filter((item) => {
                 return item.hash === hash
             })
-            if (fitterCookiesList.length > 0) {
+            if (fitterCookiesList.length > 0 || !hash) {
                 return;
             } else {
                 cookiesList.push({
@@ -19,10 +19,12 @@ const checkUserhash = function(hash) {
                 })
             }
         } else {
-            cookiesList = [{
-                name: getCoookieName(hash),
-                hash
-            }]
+            if (hash) {
+                cookiesList = [{
+                    name: getCoookieName(hash),
+                    hash
+                }];
+            }
         }
         chrome.storage.sync.set({ cookies: JSON.stringify({ list: cookiesList }) }, () => {
             chrome.storage.sync.get('cookies', (result) => {
@@ -60,8 +62,8 @@ const mutations = {
     [types.UPDATE_COOKIE](state, hash) {
         if (hash) {
             state.user.cookie = hash;
-            checkUserhash(hash);
         }
+        checkUserhash(hash);
     }
 }
 
