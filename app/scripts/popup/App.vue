@@ -13,13 +13,26 @@
               </svg>
             </router-link>
         </footer>
+         <transition-group name="toast" tag="div">
+        <div class="vue-toast_container " v-for="item in toast" :key="item.id">
+          <div class="vue-toast_message">
+            <span>{{item.text}}</span> <!---->
+          </div>
+        </div>
+      </transition-group>
     </div>
 
 </template>
 <script>
+  import {mapGetters} from 'vuex'
   export default{
     created () {
       this.init();
+    },
+     computed: {
+      ...mapGetters({
+        toast: 'toast'
+      })
     },
     methods: {
       init(){
@@ -139,5 +152,71 @@
         fill: #000;
       }
     }
+  }
+  vue-toast-manager_container {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    bottom: 50/75rem;
+  }
+
+  .vue-toast-manager_toasts {
+    position: relative;
+  }
+
+  .vue-toast_container {
+    position: absolute;
+    display: none;
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform .2s ease-out;
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+    transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-align: center;
+    bottom: 75px;
+    left: 0;
+    right: 0;
+    &:last-child {
+      display: block;
+    }
+  }
+
+  .view {
+    visibility: visible;
+  }
+
+  .vue-toast_container .vue-toast_message {
+    background-color: rgba(0, 0, 0, .7);
+    display: inline-block;
+  }
+
+  .vue-toast_message {
+    padding: 6px 10px;
+    border-radius: 15px;
+    color: white;
+    font-family: arial, sans-serif;
+  }
+
+  .vue-toast_close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    opacity: .7;
+    -webkit-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .toast-enter-active, .toast-leave-active {
+    transition: all .5s;
+  }
+  .toast-enter, .toast-leave-active {
+    opacity: 0;
   }
 </style>

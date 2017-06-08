@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(0,0,0, .4);
+    background-color: rgba(0,0,0, .3);
     z-index: 500;
     transition: opacity .3s ease;
   }
@@ -63,7 +63,7 @@
       </div>
       <div class="modal-content"><input placeholder="请输入饼干" v-model="cookie"/></div>
       <div class="modal-footer">
-        <a class="submit">确定</a>
+        <a href="#" class="submit" @click.prevent="submit">确定</a>
       </div>
     </div>
   </div>
@@ -78,7 +78,8 @@ export default {
   },
   methods: {
     submit() {
-
+      console.log(111)
+      this.$store.dispatch('toast', '测试')
     }
   }
 }

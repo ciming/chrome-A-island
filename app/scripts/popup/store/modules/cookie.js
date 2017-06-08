@@ -20,6 +20,9 @@ const actions = {
                 commit(types.SET_COOKIE_LIST, cookiesData.list)
             }
         })
+    },
+    ['addCookie']({ commit }, cookieHash) {
+
     }
 }
 const mutations = {
