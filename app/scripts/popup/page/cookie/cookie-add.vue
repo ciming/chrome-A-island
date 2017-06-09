@@ -61,7 +61,7 @@
       <div class="modal-title">
         请输入饼干
       </div>
-      <div class="modal-content"><input placeholder="请输入饼干" v-model="cookie"/></div>
+      <div class="modal-content"><input placeholder="请输入饼干" v-model.trim="cookie"/></div>
       <div class="modal-footer">
         <a href="#" class="submit" @click.prevent="submit">确定</a>
       </div>
@@ -78,8 +78,19 @@ export default {
   },
   methods: {
     submit() {
-      console.log(111)
-      this.$store.dispatch('toast', '测试')
+      if(this.cookie === '') {
+        this.$store.dispatch('toast', '请输入饼干');
+        return ;
+      }
+      this.$store.dispatch('addCookie', this.cookie)
+        .then(()=> {
+          console.log(111111)
+          this.$emit('close');
+          this.$store.dispatch('toast', '饼干添加成功');
+        }, ()=> {
+          console.log(111)
+          this.$store.dispatch('toast', '饼干已存在');
+        })
     }
   }
 }

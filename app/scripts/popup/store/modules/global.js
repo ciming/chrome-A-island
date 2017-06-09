@@ -50,16 +50,28 @@ const actions = {
             name: 'userhash'
         }, (cookie) => {
             if (cookie) {
-                commit(types.UPDATE_COOKIE, cookie.value);
+                commit('updateCookie', cookie.value);
             } else {
-                commit(types.UPDATE_COOKIE, null);
+                commit('updateCookie', null);
             }
         })
+    },
+    ['changeCookie']({ commit }, cookieHash) {
+        chrome.cookies.set({
+            url: 'https://h.nimingban.com',
+            name: 'userhash',
+            domain: 'https://h.nimingban.com',
+            value: cookieHash
+        }, (cookie) => {
+            console.log(cookieHash)
+            commit('updateCookie', cookieHash);
+        })
+
     }
 }
 
 const mutations = {
-    [types.UPDATE_COOKIE](state, hash) {
+    ['updateCookie'](state, hash) {
         if (hash) {
             state.user.cookie = hash;
         }
