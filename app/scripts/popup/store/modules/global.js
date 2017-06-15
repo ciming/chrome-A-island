@@ -60,10 +60,8 @@ const actions = {
         chrome.cookies.set({
             url: 'https://h.nimingban.com',
             name: 'userhash',
-            domain: 'https://h.nimingban.com',
             value: cookieHash
         }, (cookie) => {
-            console.log(cookieHash)
             commit('updateCookie', cookieHash);
         })
 

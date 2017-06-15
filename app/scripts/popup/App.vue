@@ -29,7 +29,7 @@
     created () {
       this.init();
     },
-     computed: {
+    computed: {
       ...mapGetters({
         toast: 'toast'
       })
@@ -153,7 +153,7 @@
       }
     }
   }
-  vue-toast-manager_container {
+  .vue-toast-manager_container {
     position: fixed;
     width: 100%;
     z-index: 1000;

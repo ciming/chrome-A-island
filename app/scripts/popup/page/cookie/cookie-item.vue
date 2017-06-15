@@ -1,6 +1,6 @@
 <template>
   <div class="cookie-item" :class="{current:cookie.hash===user.cookie}">
-    <div class="p-name">{{cookie.name}}</div>
+    <a href="#" @click.prevent="select(cookie.hash)" class="p-name">{{cookie.name}}</a>
     <a>
       <svg>
         <use xlink:href="#close"></use>
@@ -20,6 +20,11 @@ export default {
     }),
     cookieId() {
       return this.cookie
+    }
+  },
+  methods: {
+    select (hash) {
+      this.$store.dispatch('changeCookie', hash);
     }
   }
 }
