@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <router-view class="page"></router-view>
-        <footer>
+        <!--<footer>
             <router-link :to="{name:'index'}">
               <svg>
                 <use xlink:href="#rrs"></use>
@@ -12,7 +12,7 @@
                 <use xlink:href="#setting"></use>
               </svg>
             </router-link>
-        </footer>
+        </footer>-->
          <transition-group name="toast" tag="div">
         <div class="vue-toast_container " v-for="item in toast" :key="item.id">
           <div class="vue-toast_message">

@@ -8,8 +8,7 @@ Vue.use(Router)
 
 const router = new Router({
     routes: [
-        { name: 'index', path: '/', component: Index, redirect: '/cookie' },
-        { name: 'setting', path: '/setting', component: Setting },
+        { name: 'setting', path: '/', component: Setting },
         { name: 'cookie', path: '/cookie', component: Cookie }
     ]
 })
