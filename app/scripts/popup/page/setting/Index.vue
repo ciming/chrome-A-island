@@ -3,7 +3,6 @@
     <router-link :to="{name: 'cookie'}" class="cell">
      <div class="c-title">
        <h2>饼干管理</h2>
-       <p>理论上来说，您没有饼干</p>
       </div>
       <div class='a-right'>
         <svg>
@@ -11,9 +10,33 @@
         </svg>
       </div>
     </router-link>
+     <router-link :to="{name: 'rrs'}" class="cell">
+     <div class="c-title">
+       <h2>订阅管理</h2>
+      </div>
+      <div class='a-right'>
+        <svg>
+          <use xlink:href="#arrow-right"></use>
+        </svg>
+      </div>
+    </router-link>
+     <menu-footer></menu-footer>
   </div>
 </template>
 <script>
+ import menuFooter from '../../components/menu-footer.vue'
+ export default {
+    components: {
+      menuFooter
+    },
+    data: function() {
+        return {
+            text: 'hello'
+        }
+    },
+    mounted () {
+    }
+  }
 </script>
 
 <style lang="less">

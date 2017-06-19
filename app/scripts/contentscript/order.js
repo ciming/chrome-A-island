@@ -18,7 +18,7 @@ export const order = (function() {
         event.preventDefault();
         let link = event.target.href;
         let cuanId = getId(link);
-        alert(cuanId)
+        fetchRrs(cuanId)
     }
     /**
      * 获取链接id
@@ -27,5 +27,14 @@ export const order = (function() {
     function getId(link) {
         let id = /tid\/(.+?)\.html$/.exec(link)[1];
         return id
+    }
+    /**
+     * 订阅请求
+     * @param {String} cuanId 订阅ID
+     */
+    function fetchRrs(cuanId) {
+        $.ajax({
+            url:
+        })
     }
 })();

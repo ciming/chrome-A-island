@@ -84,11 +84,9 @@ export default {
       }
       this.$store.dispatch('addCookie', this.cookie)
         .then(()=> {
-          console.log(111111)
           this.$emit('close');
           this.$store.dispatch('toast', '饼干添加成功');
         }, ()=> {
-          console.log(111)
           this.$store.dispatch('toast', '饼干已存在');
         })
     }
