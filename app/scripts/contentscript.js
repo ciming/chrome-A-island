@@ -1,1 +1,1 @@
-import { order } from './contentscript/order'
+import rrs from './contentscript/rrs'

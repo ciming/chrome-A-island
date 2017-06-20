@@ -1,10 +1,15 @@
 // Enable chromereload by uncommenting this line:
 // import 'chromereload/devonly';
+import addRRS from './background/addRRS'
+alert("想了解生命的意义吗？");
+chrome.runtime.onInstalled.addListener(function(details) {});
+chrome.browserAction.setBadgeText({ text: '\'Allo' });
 
-chrome.runtime.onInstalled.addListener(function (details) {
-  console.log('previousVersion', details.previousVersion);
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    switch (request.type) {
+        case 'sendRRS':
+            addRRS(request.content);
+        default:
+            break;
+    }
 });
-
-chrome.browserAction.setBadgeText({text: '\'Allo'});
-
-console.log('\'Allo \'Allo! Event Page for Browser Action');

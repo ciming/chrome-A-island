@@ -10,16 +10,6 @@
         </svg>
       </div>
     </router-link>
-     <router-link :to="{name: 'rrs'}" class="cell">
-     <div class="c-title">
-       <h2>订阅管理</h2>
-      </div>
-      <div class='a-right'>
-        <svg>
-          <use xlink:href="#arrow-right"></use>
-        </svg>
-      </div>
-    </router-link>
      <menu-footer></menu-footer>
   </div>
 </template>
