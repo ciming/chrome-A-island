@@ -5,12 +5,10 @@ export default function(chuan) {
             let RRSDate = JSON.parse(result.rrs);
             RRSList = RRSDate.list;
             let index = RRSList.findIndex((item) => {
-                item.id === chuan.id;
+                return item.id === chuan.id;
             })
             console.log(index)
-            if (index >= 0) {
-                alert('已添加过')
-            } else {
+            if (index < 0) {
                 RRSList.push(chuan);
             }
         } else {

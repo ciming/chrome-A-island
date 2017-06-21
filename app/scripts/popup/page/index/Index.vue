@@ -10,11 +10,13 @@
       <div class="rrs-list">
         <rrs-item v-for="(item,index) in rrs" :info="item" :index="index"></rrs-item>
       </div>
+      <no-list  v-if="rrs.length===0">请点击订阅，会同步到列表</no-list>
       <menu-footer></menu-footer>
     </div>
 </template>
 <script>
   import {mapGetters} from 'vuex'
+  import noList from '../../components/no-list.vue'
   import menuFooter from '../../components/menu-footer.vue'
   import MyHeader from '../../components/my-header.vue'
   import rrsItem from './rrsItem.vue'
@@ -22,7 +24,8 @@
     components: {
       menuFooter,
       MyHeader,
-      rrsItem
+      rrsItem,
+      noList
     },
     computed: {
       ...mapGetters({
