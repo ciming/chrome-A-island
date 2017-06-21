@@ -6,6 +6,7 @@ chrome.runtime.onInstalled.addListener(function(details) {});
 chrome.browserAction.setBadgeText({ text: '\'Allo' });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log(request)
     switch (request.type) {
         case 'sendRRS':
             addRRS(request.content);

@@ -7,6 +7,7 @@ export default function(chuan) {
             let index = RRSList.findIndex((item) => {
                 item.id === chuan.id;
             })
+            console.log(index)
             if (index >= 0) {
                 alert('已添加过')
             } else {

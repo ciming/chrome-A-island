@@ -22,6 +22,7 @@ export default (function() {
         let chuanId = getId(link);
         let chuanData = getChuangData(chuanId);
         chrome.runtime.sendMessage({ type: "sendRRS", content: chuanData }, () => {
+            console.log(chuanData)
             location.href = link
         });
     }
@@ -42,15 +43,22 @@ export default (function() {
         let title = chuan.find('.h-threads-info-title').html();
         let email = chuan.find('.h-threads-info-email').html();
         let createdat = chuan.find('.h-threads-info-createdat').html();
-        let uid = chuan.find('h-threads-info-uid').html();
+        let uid = chuan.find('.h-threads-info-uid').html();
         let id = chuanId;
         let content = chuan.find('.h-threads-content').html();
+        let pic = null;
+        let coverImg = chuan.find('.h-threads-item-main').find('.h-threads-img');
+        if (coverImg.length > 0) {
+            pic = chuan.find('.h-threads-img')[0].src;
+        }
+
         return {
             title,
             email,
             createdat,
             uid,
             id,
+            pic,
             content: content.replace(/[\r\n]/g, "").replace(/(^\s*)|(\s*$)/g, "")
         }
     }
