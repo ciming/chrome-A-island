@@ -21,6 +21,9 @@
       }
       .p-text{
         flex: 1;
+        max-height: 70px;
+        overflow: hidden;
+         text-overflow:ellipsis;
       }
     }
     .chuan-top{
@@ -51,7 +54,7 @@
     </div>
     <div class="chuan-content">
       <div class="p-pic" v-if="info.pic"><img :src="info.pic"></div>
-      <div class="p-text">{{info.content}}</div>
+      <div class="p-text" v-html="info.content"></div>
     </div>
   </div>
 </template>
