@@ -1,0 +1,64 @@
+#h-emot-select{
+  display: none
+}
+.emoticons-wrapper{
+  position: relative;
+}
+.choose-emoticons{
+  color: #666;
+  background-color: #EEE;
+  border-color: #EEE;
+  font-weight: 300;
+  font-size: 12px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 24px;
+  height: 24px;
+  margin: 0;
+  display: inline-block;
+  appearance: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
+.emoticons-box{
+  overflow: hidden;
+  width: 316px;
+  height: 140px;
+  position: absolute;
+  background: #fff;
+  border:3px solid #f0f0f0;
+  left: 0;
+  &.top{
+    bottom: 24px;
+  }
+  &.bottom{
+    top: 24px;
+  }
+  .inner{
+    overflow: scroll;
+    max-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      width: 25%;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      text-decoration: none;
+      color: #800000;
+      transition: all .3s;
+      &:hover{
+        background: #f0f0f0;
+      }
+    }
+  }
+}
