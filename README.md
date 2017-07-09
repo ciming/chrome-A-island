@@ -67,7 +67,6 @@ The build tool also defines a variable named `ENV` in your scripts. It will be s
 	}
 
 ## 下一个功能
-
 - [ ] 回复记录
 - [ ] 图片预览
 

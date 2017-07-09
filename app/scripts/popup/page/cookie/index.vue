@@ -32,6 +32,7 @@
       <cookie-item
         v-for="(item,index) in cookies.list"
         :cookie="item"
+        :index="index"
         ></cookie-item>
     </div>
     <no-list  v-else>没有饼干</no-list>

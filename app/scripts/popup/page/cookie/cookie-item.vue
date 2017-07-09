@@ -1,7 +1,7 @@
 <template>
   <div class="cookie-item" :class="{current:cookie.hash===user.cookie}">
     <a href="#" @click.prevent="select(cookie.hash)" class="p-name">{{cookie.name}}</a>
-    <a>
+    <a href="#" @click.prevent="delCookie(index)">
       <svg>
         <use xlink:href="#close"></use>
       </svg>
@@ -13,7 +13,7 @@
 <script>
 import {mapGetters} from 'vuex'
 export default {
-  props: ['cookie'],
+  props: ['cookie', 'index'],
   computed: {
     ...mapGetters({
       user: 'getUser'
@@ -25,6 +25,11 @@ export default {
   methods: {
     select (hash) {
       this.$store.dispatch('changeCookie', hash);
+    },
+    delCookie(index) {
+      this.$store.dispatch('delCookie', index);
+      this.$store.dispatch('toast', '删除成功');
+
     }
   }
 }

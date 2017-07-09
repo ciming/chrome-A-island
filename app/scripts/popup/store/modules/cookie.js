@@ -34,6 +34,9 @@ const actions = {
             }
         })
 
+    },
+    ['delCookie']({ commit, state, dispatch }, index) {
+        commit('delCookie', index)
     }
 }
 const mutations = {
@@ -48,6 +51,12 @@ const mutations = {
             name: getCoookieName(cookieHash),
             hash: cookieHash
         })
+        chrome.storage.sync.set({ cookies: JSON.stringify({ list: state.cookies.list }) }, () => {
+            console('保存成功')
+        })
+    },
+    ['delCookie'](state, index) {
+        state.cookies.list.splice(index, 1);
         chrome.storage.sync.set({ cookies: JSON.stringify({ list: state.cookies.list }) }, () => {
             console('保存成功')
         })
