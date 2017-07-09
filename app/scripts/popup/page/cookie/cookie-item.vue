@@ -35,10 +35,11 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding:10px 20px;
     .p-name{
       flex: 1;
       line-height: 21px;
+      color: #b1b1b1;
     }
     a {
       display: block;
@@ -56,6 +57,7 @@ export default {
     &.current{
       .p-name{
         font-weight: bold;
+        color: #333
       }
     }
   }

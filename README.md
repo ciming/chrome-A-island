@@ -1,6 +1,5 @@
 # AIsland chrome
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Acfun匿名版（A岛）chrome 插件
 
 ## Installation
 
@@ -67,7 +66,10 @@ The build tool also defines a variable named `ENV` in your scripts. It will be s
 		console.log('We are in development mode!');
 	}
 
+## 下一个功能
 
+- [ ] 回复记录
+- [ ] 图片预览
 
 
 

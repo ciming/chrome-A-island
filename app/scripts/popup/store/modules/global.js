@@ -72,6 +72,8 @@ const mutations = {
     ['updateCookie'](state, hash) {
         if (hash) {
             state.user.cookie = hash;
+        } else {
+            state.user.cookie = '';
         }
         checkUserhash(hash);
     }

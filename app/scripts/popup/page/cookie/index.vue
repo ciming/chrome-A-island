@@ -1,3 +1,24 @@
+<style lang="less" scoped>
+.get-cookie{
+  padding: 10px 20px;
+  button{
+    background-color: #81ccca;
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 300;
+    line-height: 28px;
+    padding: 6px 16px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .tip{
+    margin-top: 10px;
+    color: #666
+  }
+}
+</style>
+
 <template>
   <div class="page-cookie">
     <my-header title="饼干管理">
@@ -13,7 +34,14 @@
         :cookie="item"
         ></cookie-item>
     </div>
-    <no-list  v-if="cookies.loaded&&cookies.list.length===0">没有饼干</no-list>
+    <no-list  v-else>没有饼干</no-list>
+    <div class="get-cookie">
+      <button type="button" @click="clearCookie">获取新饼干</button>
+      <div class="tip">
+        点击后，重新发串，可以获取新饼干（前提是猴子开放饼干）
+      </div>
+    </div>
+
     <cookie-add v-if="modalVisable" @close="modalVisable = false"></cookie-add>
   </div>
 </template>
@@ -43,11 +71,19 @@ export default {
   },
   created () {
     this.$store.dispatch('getCookieList')
+  },
+  methods: {
+    clearCookie() {
+      chrome.cookies.remove({
+        "url": "https://h.nimingban.com",
+        "name": "userhash"
+      }, (deleted_cookie)=> {
+          this.$store.dispatch('toast', '本地饼干清除，请发串获取');
+          this.$store.commit('updateCookie', '')
+      })
+    }
   }
 }
 </script>
 
-<style>
-
-</style>
 

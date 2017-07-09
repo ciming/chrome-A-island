@@ -59,6 +59,7 @@
     "jquery": "^3.2.1",
     "js-cookie": "^2.1.4",
     "less-loader": "^4.0.4",
+    "showdown": "^1.7.1",
     "vue": "^2.2.1",
     "vue-router": "^2.3.0",
     "vuex": "^2.3.1",
